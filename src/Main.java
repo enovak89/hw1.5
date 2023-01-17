@@ -1,6 +1,14 @@
+import java.lang.Math;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Main {
     public static void main(String[] args) {
         taskAdd2();
+        taskAdd3();
+        taskAdd4();
+        taskAdd5();
+        taskAdd6();
 
         System.out.println("Задача 1");
         boolean clientOS = false;
@@ -78,7 +86,8 @@ public class Main {
         String answAdd1 = (p % 2 == 1) || (p == 0) ? "Число нечетное" : "Число четное";
         System.out.println(answAdd1);
     }
-    public static void taskAdd2 () {
+
+    public static void taskAdd2() {
         System.out.println("Задача 2*");
         float p = 15.3f, d = 7.1f, pd = 10 - p, dd = 10 - d;
         if (Math.abs(pd) > Math.abs(dd)) {
@@ -86,5 +95,77 @@ public class Main {
         } else {
             System.out.printf("Число %.2f ближе к 10 чем %.2f\n", p, d);
         }
+    }
+
+    public static void taskAdd3() {
+        System.out.println("Задача 3*");
+        Random random = new Random();
+        int i = 3 + random.nextInt(156);
+        if (22 < i && i < 99) {
+            System.out.printf("Число %d попало в диапазон 22-99\n", i);
+        } else {
+            System.out.printf("Число %d не попало в диапазон 22-99\n", i);
+        }
+    }
+
+    public static void taskAdd4() {
+        System.out.println("Задача 4*");
+        int k = ThreadLocalRandom.current().nextInt(999);
+        //int firstKNum = k / 100;
+        //int secondKNum = (k - firstKNum * 100) / 10;
+        int firstKNum = k / 100;
+        int secondKNum = k % 100 / 10;
+        int thirdKNum = k % 10;
+        System.out.println(k + " " + firstKNum + " " + secondKNum + " " + thirdKNum);
+        if (firstKNum >= secondKNum && firstKNum >= thirdKNum) {
+            System.out.printf("Число %d - наибольшее\n", firstKNum);
+        } else if (secondKNum >= thirdKNum) {
+            System.out.printf("Число %d - наибольшее\n", secondKNum);
+            } else {
+            System.out.printf("Число %d - наибольшее\n", thirdKNum);
+        }
+    }
+
+    public static void taskAdd5 () {
+        System.out.println("Задача 5*");
+        int a = ThreadLocalRandom.current().nextInt(-1000, 1000), b = ThreadLocalRandom.current().nextInt(-1000, 1000),
+                c = ThreadLocalRandom.current().nextInt(- 1000, 1000);
+        int max = 0, min = 0, mid = 0;
+        if (a >= b && a >= c) {
+            max = a;
+            if (b >= c) {
+                mid = b;
+                min = c;
+            } else {
+                mid = c;
+                min = b;
+            }
+        } else if (b >= c) {
+            max = b;
+            if (a >= c) {
+                mid = a;
+                min = c;
+            } else {
+                mid = c;
+                min = a;
+            }
+        } else {
+            max = c;
+            if (a >= b) {
+                mid = a;
+                min = b;
+            }
+        }
+        System.out.println(a + " " + b + " " + c);
+        System.out.println(min + " " + mid + " " + max);
+    }
+
+    public static void taskAdd6 () {
+        System.out.println("Задача 6*");
+        int currentSeconds = ThreadLocalRandom.current().nextInt(28801);
+        int leftSeconds = 28800 - currentSeconds;
+        float currentHours = Math.round(currentSeconds / 3600f);
+        int leftHours = 8 - (int) currentHours;
+        System.out.println(currentSeconds + " " + currentHours + " " + leftSeconds + " " + leftHours);
     }
 }
