@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
+        taskAdd2();
+
         System.out.println("Задача 1");
         boolean clientOS = false;
         String answ = clientOS == true ? "Установите версию приложения для Android по ссылке" : "Установите версию приложения для iOS по ссылке";
@@ -43,48 +45,46 @@ public class Main {
         }
 
         System.out.println("Задача 5");
-        byte monthNum = 13;
+        byte monthNum = 3;
         String answ5;
         switch (monthNum) {
             case 1:
-                answ5 = "Зима";
-                break;
             case 2:
+            case 12:
                 answ5 = "Зима";
                 break;
             case 3:
-                answ5 = "Весна";
-                break;
             case 4:
-                answ5 = "Весна";
-                break;
             case 5:
                 answ5 = "Весна";
                 break;
             case 6:
-                answ5 = "Лето";
-                break;
             case 7:
-                answ5 = "Лето";
-                break;
             case 8:
                 answ5 = "Лето";
                 break;
             case 9:
-                answ5 = "Осень";
-                break;
             case 10:
-                answ5 = "Осень";
-                break;
             case 11:
-                answ5 = "Осень";
-                break;
-            case 12:
                 answ5 = "Осень";
                 break;
             default:
                 answ5 = "";
         }
         System.out.println(answ5);
+
+        System.out.println("Задача 1*");
+        int p = 0;
+        String answAdd1 = (p % 2 == 1) || (p == 0) ? "Число нечетное" : "Число четное";
+        System.out.println(answAdd1);
+    }
+    public static void taskAdd2 () {
+        System.out.println("Задача 2*");
+        float p = 15.3f, d = 7.1f, pd = 10 - p, dd = 10 - d;
+        if (Math.abs(pd) > Math.abs(dd)) {
+            System.out.printf("Число %.2f ближе к 10 чем %.2f\n", d, p);
+        } else {
+            System.out.printf("Число %.2f ближе к 10 чем %.2f\n", p, d);
+        }
     }
 }
